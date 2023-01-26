@@ -26,7 +26,6 @@ model Category {
   name       String
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
-  products   Product[]
 
   @@map("categories")
 }
@@ -36,13 +35,10 @@ model Product {
   name        String
   price       String
   description String
-  banner      String
   created_at  DateTime? @default(now())
   updated_at  DateTime? @default(now())
 
-  category    Category @relation(fields: [category_id], references: [id])
-  category_id String
-  items       Item[]
+  items Item[]
 
   @@map("products")
 }
